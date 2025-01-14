@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-              
                 git branch: 'main', url: 'https://github.com/AzzouzOns/Devops.git'
             }
         }
@@ -13,8 +12,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     script {
-                        
-                        sh 'docker build -t monprojet-frontend .'
+                        bat 'docker build -t monprojet-frontend .'
                     }
                 }
             }
@@ -24,8 +22,7 @@ pipeline {
             steps {
                 dir('backend') {
                     script {
-                        
-                        sh 'docker build -t monprojet-backend .'
+                        bat 'docker build -t monprojet-backend .'
                     }
                 }
             }
@@ -34,8 +31,7 @@ pipeline {
         stage('Deploy with Docker Compose') {
             steps {
                 script {
-                   
-                    sh 'docker-compose up -d --build'
+                    bat 'docker-compose up -d --build'
                 }
             }
         }
@@ -43,12 +39,11 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                  
                     dir('frontend') {
-                        sh 'npm install && npm test'
+                        bat 'npm install && npm test'
                     }
                     dir('backend') {
-                        sh 'npm install && npm test'
+                        bat 'npm install && npm test'
                     }
                 }
             }
@@ -58,7 +53,7 @@ pipeline {
             steps {
                 script {
                     // Nettoyer les conteneurs inutilisés
-                    sh 'docker system prune -f'
+                    bat 'docker system prune -f'
                 }
             }
         }
@@ -66,7 +61,6 @@ pipeline {
 
     post {
         always {
-            // Archivez les artefacts ou envoyez des notifications
             archiveArtifacts artifacts: '**/build/**/*', allowEmptyArchive: true
             echo 'Pipeline terminé.'
         }
