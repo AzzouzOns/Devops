@@ -1,0 +1,52 @@
+<div class="register-container">
+    <div class="register-left">
+      <img src="assets/admin/img/fli.jpg" alt="Signup Illustration">
+    </div>
+    <div class="register-right">
+      <h2>Sign Up</h2>
+      <p>Hey, enter your details to create your account</p>
+      <form (ngSubmit)="register(f)" #f="ngForm">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Enter your Name" ngModel required #name="ngModel">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Enter your Email" ngModel required email #email="ngModel">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" placeholder="Create Password" ngModel required #password="ngModel">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            Password is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <select name="role" class="form-control-user" ngModel required #role="ngModel">
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="employee">Employee</option>
+          </select>
+          <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
+            Role is required.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Sign up</button>
+        <hr>
+      </form>
+      
+      <div *ngIf="registrationSuccess" class="alert alert-success mt-3">
+        Registration successful So Click to Sign In !
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+      <p class="text-center">Already have an account? <a [routerLink]="['/admin/login']">Sign in</a></p>
+    
+    </div>
+  </div>
+  

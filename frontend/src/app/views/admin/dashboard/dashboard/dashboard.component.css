@@ -1,0 +1,200 @@
+/* General styles */
+#wrapper {
+    display: flex;
+}
+
+#content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fc; /* Background for the main content area */
+}
+
+#content {
+    flex: 1;
+}
+
+
+.bg-gradient-primary {
+    background-color: #4e73df;
+    background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+    background-size: cover;
+}
+
+
+.sidebar .sidebar-brand {
+    height: 4.375rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .nav-item .nav-link {
+    color: #ffffff;
+}
+
+.sidebar .nav-item .nav-link span {
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.sidebar .nav-item .nav-link i {
+    font-size: 1rem;
+}
+
+.topbar {
+    height: 4.375rem;
+}
+
+.navbar-search {
+    margin-left: 1rem;
+}
+
+.navbar-search .input-group {
+    width: 300px;
+}
+
+.navbar-search .form-control {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.navbar-search .btn {
+    border-radius: 0;
+    color: #fff;
+    background-color: #4e73df;
+    border-color: #4e73df;
+}
+
+.img-profile {
+    height: 2rem;
+    width: 2rem;
+}
+
+.dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.footer {
+    padding: 1rem;
+    background: #fff;
+}
+
+.footer .copyright {
+    font-size: 0.875rem;
+}
+
+/* Container principal */
+.container-fluid {
+    padding: 10px;
+}
+
+/* Barre de recherche */
+.search-bar {
+    width: 30%;
+    max-width: 400px;
+}
+
+.search-bar .form-control {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px;
+    border: 1px solid #d1d3e2;
+    box-shadow: none;
+}
+
+.search-bar .input-group-append .btn {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #4e73df;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar .input-group-append .btn:hover {
+    background-color: #2e59d9;
+}
+
+/* Topbar */
+.topbar {
+    border-bottom: 1px solid #e3e6f0;
+    height: 50px;
+}
+
+/* Profil utilisateur */
+.img-profile {
+    width: 40px;
+    height: 40px;
+}
+
+.navbar .nav-link {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: #ffff;
+}
+
+.navbar .nav-link .text-gray-600 {
+    font-weight: 400;
+}
+
+.navbar .dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+/* Styles supplémentaires pour la section des messages */
+.sidebar .card {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: none;
+}
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #fff;
+}
+
+.form-control {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+/* Sidebar Messages Section */
+#sidebarMessages {
+    padding: 10px;
+}
+
+.sidebar-form {
+    background: rgba(156, 201, 225, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.sidebar-form input, .sidebar-form textarea, .sidebar-form select {
+    color: #333;
+}

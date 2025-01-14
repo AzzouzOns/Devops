@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./4op
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - DB_HOST=postgres  # Matches the service name for the database
+      - DB_PORT=5432       # PostgreSQL's default port
+      - DB_USER=postgres   # PostgreSQL default user
+      - DB_PASSWORD=sbamo  # Password for the default user
+      - DB_NAME=Emp        # Name of the database
+    networks:
+      - app-network
+    depends_on:
+      - postgres            # Ensures backend starts after PostgreSQL
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres      # Default PostgreSQL user
+      - POSTGRES_PASSWORD=sbamo     # Password for the default user
+      - POSTGRES_DB=Emp             # Database to create on initialization
+    ports:
+      - "5432:5432"                 # Expose PostgreSQL on the default port
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist database data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

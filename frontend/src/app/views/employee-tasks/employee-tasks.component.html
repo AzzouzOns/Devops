@@ -1,0 +1,51 @@
+<div class="container">
+    <div *ngIf="messageErr" class="alert alert-danger">{{ messageErr }}</div>
+    <div *ngIf="tasks.length === 0 && !messageErr" class="alert alert-info">
+      No tasks found.
+    </div>
+    <table *ngIf="tasks.length > 0" class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of getPaginatedTasks()">
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.startDate | date }}</td>
+          <td>{{ task.endDate | date }}</td>
+          <td>
+            <span *ngIf="!task.isEditing" class="status" [ngClass]="getStatusClass(task.status)" (click)="task.isEditing = true">
+              {{ task.status }}
+            </span>
+            <select *ngIf="task.isEditing" (change)="onStatusChange(task, $event)">
+              <option *ngFor="let status of statusOptions" [value]="status" [selected]="status === task.status">
+                {{ status }}
+              </option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination-save-container">
+      <div class="pagination-container">
+        <div class="pagination">
+          <button (click)="changePage(1)" [disabled]="currentPage === 1">&laquo;&laquo;</button>
+          <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">&laquo;</button>
+          <ng-container *ngFor="let page of [].constructor(getTotalPages()); let i = index">
+            <button [class.active]="i + 1 === currentPage" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+          </ng-container>
+          <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === getTotalPages()">&raquo;</button>
+          <button (click)="changePage(getTotalPages())" [disabled]="currentPage === getTotalPages()">&raquo;&raquo;</button>
+        </div>
+      </div>
+      <button class="save-button" (click)="saveAllChanges()">Save</button>
+    </div>
+  </div>
+  

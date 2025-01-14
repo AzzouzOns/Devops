@@ -1,0 +1,32 @@
+<!-- Frontend: src/app/views/admin/addemployee/addemployee.component.html -->
+<form #f="ngForm" (ngSubmit)="addEmployee(f)"> 
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" placeholder="Enter your name" required name="name" #name="ngModel" ngModel>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email</label>
+    <input type="email" class="form-control" placeholder="name@example.com" email required name="email" #email="ngModel" ngModel>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Password</label>
+    <input type="text" class="form-control" placeholder="Enter your Password" required name="password" #password="ngModel" ngModel>
+  </div>
+
+  <div class="form-group">
+    <label for="role">Role</label>
+    <select class="form-control" id="role" required name="role" #role="ngModel" ngModel>
+      <option value="" disabled selected>Select your role</option>
+      <option value="admin">Admin</option>
+      <option value="employee">Employee</option>
+    </select>
+  </div>
+
+  <div class="alert alert-danger" *ngIf ="messageErr">
+    {{messageErr}} 
+  </div>
+
+  <button class="btn btn-primary" [disabled]="f.invalid">Add Employee</button>
+</form>

@@ -1,0 +1,79 @@
+.table {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead th {
+  border-bottom: none;
+  color: #fff;
+  background-color: #8079d4;
+}
+
+.table tbody tr {
+  vertical-align: middle;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.status-todo {
+  color: white;
+  background-color: #93b8dd;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.status-in-progress {
+  color: white;
+  background-color: #ffa500;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.status-done {
+  color: white;
+  background-color: #32cd32;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  border: none;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 5px 10px;
+  margin: 0 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #ececec;
+}
+
+.pagination button.active {
+  background-color: #8079d4;
+  color: #ffffff;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

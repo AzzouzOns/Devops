@@ -1,0 +1,13 @@
+.container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .card {
+    border-radius: 1rem;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  

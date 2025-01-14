@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">All Employees</h6>
+    </div>
+    <div class="card-body">
+      <a routerLink="/admin/addemployee" style="float: right;" class="btn btn-primary">Add Employee</a>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of paginatedData; index as i">
+              <td>{{item.name}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.password}}</td>
+              <td>{{item.role}}</td>
+              <td>
+                <button class="btn btn-secondary" (click)="getTasksByEmployee(item.id)">Tasks</button>
+                <button class="btn btn-success" (click)="getdata(item.name, item.email, item.password, item.role, item.id)" data-toggle="modal" data-target="#exampleModal">Update</button>
+                <button class="btn btn-danger" (click)="delete(item.id, i)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Pagination Controls -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" href="#" (click)="setPage(1); $event.preventDefault();" aria-label="First">
+                <span aria-hidden="true">&laquo;&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" href="#" (click)="setPage(currentPage - 1); $event.preventDefault();" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item" *ngFor="let page of [].constructor(totalPages()); let i = index" [class.active]="currentPage === i + 1">
+              <a class="page-link" href="#" (click)="setPage(i + 1); $event.preventDefault();">{{ i + 1 }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages()">
+              <a class="page-link" href="#" (click)="setPage(currentPage + 1); $event.preventDefault();" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages()">
+              <a class="page-link" href="#" (click)="setPage(totalPages()); $event.preventDefault();" aria-label="Last">
+                <span aria-hidden="true">&raquo;&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form update -->
+        <form #f="ngForm" (ngSubmit)="updatenewemployee(f)">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input type="text" class="form-control" placeholder="Enter your name" [(ngModel)]="dataEmployee.name" required name="name" #name="ngModel" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="email" class="form-control" placeholder="name@example.com" [(ngModel)]="dataEmployee.email" email required name="email" #email="ngModel" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Password</label>
+            <input type="text" class="form-control" placeholder="Enter your Password" [(ngModel)]="dataEmployee.password" required name="password" #password="ngModel" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select class="form-control" id="role" [(ngModel)]="dataEmployee.role" required name="role" #role="ngModel" ngModel>
+              <option value="" disabled selected>Select your role</option>
+              <option value="admin">Admin</option>
+              <option value="employee">Employee</option>
+            </select>
+          </div>
+          <div class="alert alert-success" *ngIf="messageSuccess">
+            {{messageSuccess}}
+          </div>
+          <button class="btn btn-primary" [disabled]="f.invalid">Update Employee</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+/* Styles pour la sidebar */
+.w3-sidebar {
+    background-color: #f44336; /* Couleur de fond */
+    border-right: 2px solid #d32f2f; /* Bordure */
+  }
+  
+  .w3-bar-item {
+    transition: background-color 0.3s ease; /* Animation de transition */
+  }
+  
+  .w3-bar-item:hover {
+    background-color: #e57373; /* Couleur au survol */
+  }
+  
+  .small-text {
+    font-size: 0.8em; /* Taille réduite */
+    opacity: 0.8; /* Opacité pour un effet subtil */
+  }
+  
+  /* Styles pour le header */
+  header {
+    background-color: #f44336; /* Couleur de fond */
+  }
+  
+  header span {
+    font-size: 1.5em; /* Taille de police du nom */
+    font-weight: bold; /* Gras pour le nom */
+  }
+  

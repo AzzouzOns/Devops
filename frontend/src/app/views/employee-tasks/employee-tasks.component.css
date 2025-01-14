@@ -1,0 +1,148 @@
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tasks-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #8a8caf;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  .alert {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+  }
+  
+  .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+  }
+  
+  .table th {
+    background-color: #8079d4;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table td {
+    color: #495057;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .status-todo {
+    color: white;
+    background-color: #93b8dd;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  .status-in-progress {
+    color: white;
+    background-color: #ffa500;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  .status-done {
+    color: white;
+    background-color: #32cd32;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  .pagination-save-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination {
+    display: flex;
+    align-items: center;
+  }
+  
+  .pagination button {
+    border: none;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px 10px;
+    margin: 0 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination button:hover {
+    background-color: #ececec;
+  }
+  
+  .pagination button.active {
+    background-color: #8079d4;
+    color: #ffffff;
+  }
+  
+  .pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .save-button {
+    background-color: #8079d4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .save-button:hover {
+    background-color: #6a63b0;
+  }
+  
+  .save-button:active {
+    transform: scale(0.98);
+  }
+  

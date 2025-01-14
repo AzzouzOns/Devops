@@ -1,0 +1,81 @@
+body {
+    background-color: #f8f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0; /* Adjust padding if needed */
+}
+
+.bg-login-image {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 25px;
+    overflow: hidden;
+    width: 110%; /* Adjust width to cover more of the viewport */
+    /*margin: 60px;*/
+    margin-left: 100px; /* Adjust margin to cover more space */
+   
+    padding: 90px; /* Adjust padding for top and bottom */
+    justify-items: center;
+    
+}
+
+.img-fluid {
+    max-width: 110%; /* Ensure image scales properly */
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+.btn-user {
+    font-size: 1rem;
+    border-radius: 90px;
+    padding: 0.75rem 3rem; /* Adjust padding for buttons */
+    background-color: #ff3f3f;
+    color: #fff;
+    border: none;
+}
+
+.form-control-user {
+    border-radius: 110px; /* Adjust border-radius */
+    padding:3rem; /* Adjust padding */
+    border: 1px solid #d1d3e2;
+    margin-bottom: 1rem;
+}
+
+.text-center a {
+    color: #df4e4e;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    color: #224abe;
+}
+
+.form-check-label {
+    margin-left: 0.25rem;
+    font-size: 0.875rem;
+    color: #858796;
+}
+
+.text-sky-blue {
+    color: #3cb7e8;
+}
+
+@media (min-width: 1000px) {
+    .col-lg-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
